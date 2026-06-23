@@ -1,0 +1,43 @@
+
+**** Log file opened at 2026-06-17 11:11:53.839518 UTC+07:00 (SE Asia Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 12
+Compilation date          : Jul  7 2023 22:54:54
+CPIC library              : 753.2023.07.06 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1216
+Current working directory : C:\Users\Lenovo\Documents\Claude\MCP SAP
+Program                   : node
+Process ID                : 21756
+User                      : bud1purwanto
+Hardware                  : PC with Windows NT 8x AMD64 Level 6 (Mod 140 Step 1)
+Operating_system          : Windows NT 10.0
+Hostname                  : KR-IT-BUDI
+IP address                : 192.168.255.210
+IPv6 address              : fe80::f181:d6b7:693d:221b
+Global trace level        : 0
+
+2026-06-17 11:11:53.837124 [12424] >> Info entry
+	Did not find config file C:\Users\Lenovo\Documents\Claude\MCP SAP\sapnwrfc.ini.
+
+**** Log file opened at 2026-06-17 11:13:36.693475 UTC+07:00 (SE Asia Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 12
+Compilation date          : Jul  7 2023 22:54:54
+CPIC library              : 753.2023.07.06 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1216
+Current working directory : C:\Users\Lenovo\Documents\Claude\MCP SAP
+Program                   : node
+Process ID                : 13816
+User                      : bud1purwanto
+Hardware                  : PC with Windows NT 8x AMD64 Level 6 (Mod 140 Step 1)
+Operating_system          : Windows NT 10.0
+Hostname                  : KR-IT-BUDI
+IP address                : 192.168.255.210
+IPv6 address              : fe80::f181:d6b7:693d:221b
+Global trace level        : 0
+
+2026-06-17 11:13:36.693094 [25840] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 233
+2026-06-17 11:13:36.696253 [25840] >> Error entry
+	[Handle: 2158040273520	ConvID: 12369638	Target: eccdevlinux	SysID: TRD	SysNr: 00	User: TRSTDEV	Client: 100	Language: E	Codepage: 4103]
+	RfcLogonException: Key: RFC_LOGON_FAILURE, Code: RFC_LOGON_FAILURE, Message: Name or password is incorrect (repeat logon)

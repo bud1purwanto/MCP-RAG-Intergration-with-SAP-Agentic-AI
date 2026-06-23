@@ -1,0 +1,25 @@
+
+**** Log file opened at 2026-06-17 10:59:30.535964 UTC+07:00 (SE Asia Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 12
+Compilation date          : Jul  7 2023 22:54:54
+CPIC library              : 753.2023.07.06 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1216
+Current working directory : C:\Users\Lenovo\Documents\Claude\MCP SAP\sap-leader-mcp
+Program                   : node
+Process ID                : 17956
+User                      : bud1purwanto
+Hardware                  : PC with Windows NT 8x AMD64 Level 6 (Mod 140 Step 1)
+Operating_system          : Windows NT 10.0
+Hostname                  : KR-IT-BUDI
+IP address                : 192.168.255.210
+IPv6 address              : fe80::f181:d6b7:693d:221b
+Global trace level        : 0
+
+2026-06-17 10:59:30.535457 [21884] >> Info entry
+	Did not find config file C:\Users\Lenovo\Documents\Claude\MCP SAP\sap-leader-mcp\sapnwrfc.ini.
+2026-06-17 10:59:33.124597 [14348] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 229
+2026-06-17 10:59:33.127221 [14348] >> Error entry
+	[Handle: 1636282569392	ConvID: 03042368	Target: eccprodkr	SysID: TRP	SysNr: 00	User: TRSTDEV	Client: 100	Language: E	Codepage: 4103]
+	RfcLogonException: Key: RFC_LOGON_FAILURE, Code: RFC_LOGON_FAILURE, Message: Client 100 is not available in this system

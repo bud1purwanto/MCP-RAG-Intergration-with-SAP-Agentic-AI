@@ -1,0 +1,25 @@
+{
+  "name": "sap-leader-mcp",
+  "version": "1.0.0",
+  "description": "SAP Leader MCP Server for Claude Code — multi-server SAP ECC 6.0 EHP6 / NetWeaver 7.31 access with RFC + simulation fallback",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "sap",
+    "rfc",
+    "abap",
+    "claude-code"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "node-rfc": "^3.3.1"
+  }
+}
