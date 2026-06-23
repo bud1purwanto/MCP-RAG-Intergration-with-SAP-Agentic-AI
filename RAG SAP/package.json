@@ -1,0 +1,12 @@
+{
+  "name": "rag-sap-mcp",
+  "version": "1.0.0",
+  "description": "RAG MCP Proxy — stdio wrapper untuk SAP knowledge base HTTP server",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["mcp", "rag", "sap", "knowledge-base"],
+  "license": "MIT"
+}

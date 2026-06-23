@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "rag-docs": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["index.js"],
+      "cwd": "C:\\Users\\Lenovo\\Documents\\Claude\\RAG SAP",
+      "env": {
+        "RAG_URL": "http://192.168.1.162:8090/mcp",
+        "RAG_TOKEN": "Trias123"
+      }
+    }
+  }
+}
