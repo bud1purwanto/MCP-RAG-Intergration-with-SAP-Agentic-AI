@@ -48,12 +48,12 @@ If `node-rfc` is absent or fails to load, the server keeps running in **SIMULATI
 ### 3. Set environment variables
 ```bash
 # Windows PowerShell
-$env:SAP_USER="TRSTDEV"
-$env:SAP_PASSWORD="ronin03"
+$env:SAP_USER="<your-sap-user>"
+$env:SAP_PASSWORD="<your-sap-password>"
 $env:SAP_LANGUAGE="EN"
 ```
 > Credentials in env override the per-server defaults in `config/sap-servers.json`.
-> Note QA (TRQ) uses password `mysapku`; all others use `ronin03`.
+> Different servers may use different passwords — check with your SAP Basis team.
 
 ### 4. Register with Claude Code
 Add to `~/.claude/mcp.json` (or copy from `.claude/mcp.json`), pointing `cwd` at this folder:
@@ -78,6 +78,55 @@ Restart Claude Code so it picks up the server.
 
 ### 5. Edit the server list
 Just edit **`config/sap-servers.json`** — add/remove servers, change hosts, aliases, or passwords. No restart of anything but the MCP server is needed.
+
+---
+
+## Akses via URL (HTTP MCP)
+
+Selain stdio (untuk Claude Code/Cowork lokal), server ini juga bisa diakses lewat **HTTP** dalam jaringan lokal/VPN — berguna untuk remote connector atau klien lain di jaringan yang sama.
+
+### Menjalankan
+```bash
+cd sap-leader-mcp
+MCP_HTTP_TOKEN="<token-rahasia>" MCP_HTTP_PORT=8091 npm run start:http
+```
+Atau di PowerShell:
+```powershell
+$env:MCP_HTTP_TOKEN="<token-rahasia>"; $env:MCP_HTTP_PORT=8091; npm run start:http
+```
+
+### Endpoint
+- `GET  /health` — cek server hidup (tanpa auth, tidak membocorkan data SAP)
+- `POST /mcp` — endpoint MCP JSON-RPC (wajib `Authorization: Bearer <token>`)
+
+### Karakteristik
+- **Stateless** — setiap request membuat instance server+transport baru, tidak perlu handshake `initialize` lebih dulu. Aman untuk multi-client tanpa session affinity.
+- **Bind ke `0.0.0.0`** by default → bisa diakses dari mesin lain di jaringan lokal/VPN yang sama via `http://<IP-LAN-mesin-ini>:8091/mcp`.
+- **Wajib Bearer token** — request tanpa/token salah ditolak `401`.
+- ⚠️ **Jangan expose ke internet publik** tanpa reverse proxy HTTPS + auth tambahan, karena server ini punya akses RFC ke SAP Production.
+
+### Contoh test manual
+```bash
+curl -X POST http://<IP>:8091/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Authorization: Bearer <token-rahasia>" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_servers","arguments":{}}}'
+```
+
+### Mendaftarkan sebagai remote MCP connector
+Jika klien (Claude Desktop/Cowork lain) mendukung tipe `http`:
+```json
+{
+  "mcpServers": {
+    "sap-leader-remote": {
+      "type": "http",
+      "url": "http://<IP-LAN-mesin-ini>:8091/mcp",
+      "headers": { "Authorization": "Bearer <token-rahasia>" }
+    }
+  }
+}
+```
 
 ---
 

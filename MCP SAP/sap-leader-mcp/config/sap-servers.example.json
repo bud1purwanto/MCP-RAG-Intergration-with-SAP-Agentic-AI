@@ -1,0 +1,90 @@
+{
+  "default_client": "130",
+  "default_language": "EN",
+  "servers": [
+    {
+      "name": "Development AIX",
+      "aliases": ["dev", "dev-aix", "development"],
+      "host": "192.168.2.8",
+      "sid": "TRD",
+      "instance": "00",
+      "client": "130",
+      "environment": "development",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Development server on AIX"
+    },
+    {
+      "name": "Development Windows",
+      "aliases": ["dev-win", "dev-windows"],
+      "host": "192.168.2.253",
+      "sid": "TRD",
+      "instance": "01",
+      "client": "130",
+      "environment": "development",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Development server on Windows"
+    },
+    {
+      "name": "Production AIX",
+      "aliases": ["prod", "prod-aix", "production", "prd"],
+      "host": "192.168.1.151",
+      "sid": "PRT",
+      "instance": "00",
+      "client": "999",
+      "environment": "production",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Production server on AIX — ⚠️ requires confirmation before any query"
+    },
+    {
+      "name": "Production Windows",
+      "aliases": ["prod-win", "prod-windows", "prp"],
+      "host": "192.168.1.251",
+      "sid": "TRP",
+      "instance": "00",
+      "client": "999",
+      "environment": "production",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Production server on Windows — ⚠️ requires confirmation before any query"
+    },
+    {
+      "name": "QA",
+      "aliases": ["qa", "quality", "test"],
+      "host": "192.168.2.7",
+      "sid": "TRQ",
+      "instance": "00",
+      "client": "320",
+      "environment": "qa",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Quality Assurance server"
+    },
+    {
+      "name": "Sandbox Build Competence",
+      "aliases": ["sandbox", "sandbox-build", "build-competence"],
+      "host": "192.168.88.199",
+      "sid": "TRD",
+      "instance": "00",
+      "client": "140",
+      "environment": "sandbox",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Sandbox for Build Competence"
+    },
+    {
+      "name": "Sandbox New Company",
+      "aliases": ["sandbox-new", "new-company"],
+      "host": "192.168.6.243",
+      "sid": "TRS",
+      "instance": "00",
+      "client": "130",
+      "environment": "sandbox",
+      "user": "CHANGE_ME",
+      "password": "CHANGE_ME",
+      "description": "Sandbox for New Company"
+    }
+  ]
+}

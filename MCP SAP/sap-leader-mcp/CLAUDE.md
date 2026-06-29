@@ -91,6 +91,14 @@ Sebelum menjawab pertanyaan apapun, ikuti urutan pencarian knowledge berikut:
 4. **MCP SAP** (`mcp__sap-leader__*`) secara background — ambil data live SAP jika dibutuhkan (cek stock, status order, isi tabel, detail batch, dll) tanpa buka SAP GUI tambahan.
 5. **SAP GUI** — baru eksekusi transaksi setelah punya arah yang jelas dari step 1–4.
 
+### ⚡ Rule Wajib: Pertanyaan "Step / Langkah / Cara"
+
+**Jika user bertanya tentang step, langkah, cara, atau prosedur SAP PP** (contoh: "gimana cara...", "step apa yang harus...", "langkah-langkah...", "apa yang harus dilakukan untuk...") → **WAJIB search RAG SAP terlebih dahulu** sebelum menjawab. Jangan jawab dari training knowledge/memory.
+
+- Gunakan `mcp__rag-sap-mcp__rag_search` atau `mcp__rag-sap-mcp__rag_answer` dengan query yang relevan.
+- Jika RAG menemukan dokumen (manual/blueprint) → jawab berdasarkan dokumen tersebut, sertakan nama dokumen sebagai referensi.
+- Jika RAG tidak menemukan → baru boleh jawab dari knowledge umum, dengan disclaimer bahwa tidak ditemukan di knowledge base.
+
 ---
 
 ## Decision Flow

@@ -1,0 +1,18 @@
+services:
+  sap-leader-mcp:
+    build: .
+    image: sap-leader-mcp:latest
+    container_name: sap-leader-mcp
+    restart: unless-stopped
+    ports:
+      - "8091:8091"
+    environment:
+      - MCP_HTTP_HOST=0.0.0.0
+      - MCP_HTTP_PORT=8091
+      - MCP_HTTP_TOKEN=${MCP_HTTP_TOKEN:?Set MCP_HTTP_TOKEN in .env}
+      - SAP_USER=${SAP_USER:?Set SAP_USER in .env}
+      - SAP_PASSWORD=${SAP_PASSWORD:?Set SAP_PASSWORD in .env}
+      - SAP_LANGUAGE=${SAP_LANGUAGE:-EN}
+    volumes:
+      # Mount config terpisah dari image agar bisa diedit tanpa rebuild
+      - ./config/sap-servers.json:/app/config/sap-servers.json:ro

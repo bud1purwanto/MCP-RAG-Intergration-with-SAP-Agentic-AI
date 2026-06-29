@@ -1,0 +1,34 @@
+{
+  "name": "mcp-email-connector",
+  "version": "1.0.0",
+  "description": "Standalone MCP server acting as an Email Connector (IMAP read + SMTP send)",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-email-connector": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "dotenv": "^16.4.5",
+    "imapflow": "^1.0.171",
+    "mailparser": "^3.7.1",
+    "nodemailer": "^6.9.14",
+    "turndown": "^7.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.4.6",
+    "@types/node": "^22.5.0",
+    "@types/nodemailer": "^6.4.15",
+    "@types/turndown": "^5.0.5",
+    "typescript": "^5.5.4"
+  }
+}
