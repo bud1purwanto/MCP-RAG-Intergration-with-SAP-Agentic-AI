@@ -12,14 +12,8 @@
       }
     },
     "rag-docs": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["src/rag-proxy.js"],
-      "cwd": "C:\\Users\\Lenovo\\Documents\\Claude\\MCP SAP\\sap-leader-mcp",
-      "env": {
-        "RAG_URL": "http://192.168.1.162:8090/mcp",
-        "RAG_TOKEN": "Trias123"
-      }
+      "type": "sse",
+      "url": "http://192.168.1.162:8090/sse"
     }
   }
 }

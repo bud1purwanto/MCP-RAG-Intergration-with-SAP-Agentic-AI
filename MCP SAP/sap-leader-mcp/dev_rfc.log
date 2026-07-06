@@ -1,0 +1,20 @@
+
+**** Log file opened at 2026-07-01 16:55:40.746926 UTC+07:00 (SE Asia Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 12
+Compilation date          : Jul  7 2023 22:54:54
+CPIC library              : 753.2023.07.06 version 3
+NI library                : 40
+Kernel Release            : 753 Patch Level 1216
+Current working directory : C:\Users\Lenovo\Documents\Claude\MCP SAP\sap-leader-mcp
+Program                   : node
+Process ID                : 04900
+User                      : bud1purwanto
+Hardware                  : PC with Windows NT 8x AMD64 Level 6 (Mod 140 Step 1)
+Operating_system          : Windows NT 10.0
+Hostname                  : KR-IT-BUDI
+IP address                : 192.168.255.206
+IPv6 address              : fe80::f181:d6b7:693d:221b
+Global trace level        : 0
+
+2026-07-01 16:55:40.746125 [24324] >> Info entry
+	Did not find config file C:\Users\Lenovo\Documents\Claude\MCP SAP\sap-leader-mcp\sapnwrfc.ini.
