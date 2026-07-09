@@ -32,6 +32,10 @@ export class RfcClient {
     this.credentials = credentials;
     this.client = null;
     this.connected = false;
+    // Antrian serialisasi: satu koneksi node-rfc TIDAK aman untuk panggilan
+    // bersamaan. Tanpa ini, dua RFC call yang tumpang-tindih bisa saling
+    // menukar respons (mis. satu request menerima error milik request lain).
+    this._queue = Promise.resolve();
   }
 
   get simulation() {
@@ -81,7 +85,18 @@ export class RfcClient {
     if (this.simulation || !this.connected) {
       return { simulation: true, function: functionName, parameters: params };
     }
-    const result = await this.client.call(functionName, params);
-    return { simulation: false, result };
+    // Serialkan setiap panggilan pada koneksi tunggal ini. Panggilan berikutnya
+    // baru jalan setelah yang sebelumnya selesai, sukses maupun gagal, sehingga
+    // respons tidak pernah tertukar antar-request.
+    const run = this._queue.then(async () => {
+      const result = await this.client.call(functionName, params);
+      return { simulation: false, result };
+    });
+    // Rantai antrian tidak boleh putus karena satu panggilan gagal.
+    this._queue = run.then(
+      () => undefined,
+      () => undefined
+    );
+    return run;
   }
 }

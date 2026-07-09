@@ -169,18 +169,23 @@ export class EmailClient {
    */
   async searchEmails(opts: {
     query?: string;
+    from?: string;
     maxResults: number;
     unreadOnly: boolean;
   }): Promise<EmailSummary[]> {
-    const { query, maxResults, unreadOnly } = opts;
+    const { query, from, maxResults, unreadOnly } = opts;
     const client = await this.getImap();
     const lock = await client.getMailboxLock("INBOX");
     try {
       // Build IMAP search criteria.
       const criteria: Record<string, unknown> = {};
       if (unreadOnly) criteria.seen = false;
+      // Filter by sender using the IMAP FROM header criterion (matches name OR address).
+      if (from && from.trim() !== "") {
+        criteria.from = from.trim();
+      }
+      // Filter by keyword in subject OR body text.
       if (query && query.trim() !== "") {
-        // Search subject OR body text for the term.
         criteria.or = [{ subject: query }, { body: query }];
       }
       // Empty criteria => match all.

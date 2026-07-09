@@ -6,10 +6,12 @@ import {
   searchEmailsShape,
   readEmailShape,
   sendEmailShape,
+  getCalendarShape,
   getEmailImageShape,
   handleSearchEmails,
   handleReadEmail,
   handleSendEmail,
+  handleGetCalendar,
   handleGetEmailImage,
 } from "./tools.js";
 
@@ -24,8 +26,10 @@ server.registerTool(
     title: "Search Emails",
     description:
       "Search the INBOX for incoming emails. Returns lightweight summaries " +
-      "(Message ID, Subject, From, Date). Supports a keyword query, a result " +
-      "limit, and an unread-only filter.",
+      "(Message ID, Subject, From, Date). " +
+      "Use the 'from' parameter (not 'query') to filter by sender name or address — " +
+      "e.g. when the user asks for emails FROM a specific person. " +
+      "Use 'query' for keyword search in subject/body. Both can be combined.",
     inputSchema: searchEmailsShape,
   },
   handleSearchEmails
@@ -43,6 +47,19 @@ server.registerTool(
     inputSchema: readEmailShape,
   },
   handleReadEmail
+);
+
+server.registerTool(
+  "get_calendar",
+  {
+    title: "Get Calendar",
+    description:
+      "Fetch calendar/meeting agenda from Exchange. Returns events sorted by start time. " +
+      "Use for daily briefing, checking today's schedule, or planning ahead. " +
+      "Default: today only. Set daysAhead=4 for a full work week.",
+    inputSchema: getCalendarShape,
+  },
+  handleGetCalendar
 );
 
 server.registerTool(
