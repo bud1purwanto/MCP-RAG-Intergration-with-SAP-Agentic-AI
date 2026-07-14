@@ -6,17 +6,17 @@ async function main() {
   await serverManager.loadConfig();
   await serverManager.setActiveServer('sandbox-new');
   
-  const sourceCode = fs.readFileSync('../ZMAP_COA.abap', 'utf-8');
+  const sourceCode = fs.readFileSync('../ZMAP_TYPE.abap', 'utf-8');
   const sourceLines = sourceCode.split(/\r?\n/);
   
   const itSource = sourceLines.map(line => ({ LINE: line }));
 
-  console.log(`Pushing ${itSource.length} lines to ZMAP_COA...`);
+  console.log(`Pushing ${itSource.length} lines to ZMAP_TYPE...`);
 
   const result = await call_function({
     function_name: 'Z_RFC_PROGRAM_UPDATE',
     parameters: {
-      IV_PROGRAM_NAME: 'ZMAP_COA',
+      IV_PROGRAM_NAME: 'ZMAP_TYPE',
       IV_PACKAGE: '$TMP', // Usually sandbox uses local object or whatever it is
       IT_SOURCE: itSource
     }

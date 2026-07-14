@@ -7,10 +7,10 @@ async function main() {
   const connectRes = await serverManager.setActiveServer('sandbox-new');
   console.log('Connect result:', connectRes);
   
-  const result = await read_program({ program_name: 'ZMAP_COA' });
+  const result = await read_program({ program_name: 'ZMAP_TYPE' });
   if (result.source) {
-    fs.writeFileSync('../ZMAP_COA.abap', result.source);
-    console.log('Successfully saved to ZMAP_COA.abap');
+    fs.writeFileSync('../ZMAP_TYPE.abap', result.source);
+    console.log('Successfully saved to ZMAP_TYPE.abap');
   } else {
     console.log('Failed:', result);
   }
